@@ -121,6 +121,7 @@ input[type="submit"]{
 }
 
 /* cake */
+
 .dis-none{
 	/* transform: translateX(100%);
 			transition: transform  0.5s ease-in; */
@@ -131,20 +132,49 @@ input[type="submit"]{
 width: 100%;
 height:100%;
 
+justify-content: center;
+padding: 10% 0;
+}
+
+.box{
+	width: 2px;
+	height: 2px;
+	background-color: #0275d8;
+	color: #f2f2f2;
+	float: left;
 }
 
 /* MEDIA QUERIES */
  /* Small devices (landscape phones) */
+ @media screen and (min-width: 411px){ 
+	.box{
+		width: 3px;
+		height: 3px;
+	}
+	
+}
 @media screen and (min-width: 576px){ 
-
+	.box{
+		width: 4px;
+		height: 4px;
+	}
+	
 }
 /* Medium devices (tablets, 768px and up) */
 @media screen and (min-width: 768px) { 
+	.box{
+		width: 5px;
+		height: 5px;
+	}
 }
 
  
  /* Large devices (desktops, 992px and up) */
 @media screen and (min-width: 992px) {
+	.box{
+		width: 6px;
+		height: 6px;
+	}
 	.nav-links{
 		width: 75%;
 		}
