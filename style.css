@@ -69,23 +69,17 @@ nav{
 .space{
 	height: 200px;
 }
-.vertical-center {
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-}
 
-#cont-prymary{
-height: 90%;
-}
+
 #form-cont{
-	position: relative;
+padding: 10% 0;
+}
+#form{
+	padding: 10% 0;
 }
 #cont {
 	position: relative;
-	height: 80%;
+	height: fit-content;
 	margin: 0 auto;
 	background-color: #f2f2f2;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -128,19 +122,15 @@ input[type="submit"]{
 
 /* cake */
 .dis-none{
-	display: none;
+	/* transform: translateX(100%);
+			transition: transform  0.5s ease-in; */
+			display: none;
 }
 
 #cake-cont{
 width: 100%;
-height: 90%;
-position: relative;
-}
-cake-cont{
-	display: grid;
-	align-items: center;
-	width: 100%;
-	height: 100%;
+height:100%;
+
 }
 
 /* MEDIA QUERIES */

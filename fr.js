@@ -26,6 +26,8 @@ async function sendMess(e)
 
 
   formcont.style.display = "none";
+  // formcont.classList.toggle("dis-none")
+
 
   name.value = "";
   mess.value = "";
