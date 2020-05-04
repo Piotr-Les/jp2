@@ -36,24 +36,39 @@ async function sendMess(e)
 async function getUser()
 {
   cake.classList.toggle("dis-none")
-  fetch("users.json")
-    .then(function (res)
-    {
-      return res.json()
-    })
-    .then((data) =>
-    {
-      let output = "<h2>Users</h2>";
-      data.forEach(function (user)
-      {
-        output += `
-        <ul style="list-style:none">
-        <li>ID: ${user.id}</li>
-        <li>Name: ${user.name}</li>
-        <li>Mess: ${user.mess}</li>
-        </ul>
-        `
-      });
-      document.querySelector("#cake-cont").innerHTML = output;
-    })
+  cake.style.display = "flex"
+  let output = `<div class="box" style=" clear:both; visibility: hidden;"></div>`;
+  for (let i = 1; i <= 100; i++) {
+    for (let j = 1; j <= 100; j++) {
+      output += `<div id="top${i}_left${j}" class="box" style=" border-radius:50px;top:${i}px;left:${j}px;"></div>`
+    }
+    output += `<div class="box" style=" clear:both; visibility: hidden;"></div>`
+  }
+  document.querySelector("#cake").innerHTML = output;
+  let srx = 50;
+  let sry = 50;
+  for (let i = 1; i <= 100; i++) {
+    for (let j = 1; j <= 100; j++) {
+      if (Math.sqrt((i - srx) * (i - srx) + (j - sry) * (j - sry)) >= 50) {
+        document.querySelector(`#top${i}_left${j}`).style.visibility = "hidden";
+      }
+    }
+  }
+  // fetch("users.json")
+  //   .then(function (res)
+  //   {
+  //     return res.json()
+  //   })
+  //   .then((data) =>
+  //   {
+  //     let output = "";
+  //     data.forEach(function (user)
+  //     {
+  //       output += `
+  //       <div class="box">
+  //       </div>
+  //       `
+  //     });
+  //     document.querySelector("#cake-cont").innerHTML = output;
+  //   })
 }
