@@ -190,6 +190,14 @@ padding: 10% 0;
 		width: 70%;
 		}
 	}
+	@media screen and (max-height: 500px){
+		.navbar{
+			height: 60px !important;
+		}
+		.nav-links{
+			top: 60px !important;
+		}
+	}
 	@media screen and (max-width: 991px){
 		body{
 			overflow-x: hidden;

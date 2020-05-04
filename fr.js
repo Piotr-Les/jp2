@@ -40,7 +40,7 @@ async function getUser()
   let output = `<div class="box" style=" clear:both; visibility: hidden;"></div>`;
   for (let i = 1; i <= 100; i++) {
     for (let j = 1; j <= 100; j++) {
-      output += `<div id="top${i}_left${j}" title="top: ${i}, left: ${j}" class="box" style=" border-radius:100px;top:${i}px;left:${j}px;"></div>`
+      output += `<div id="top${i}_left${j}" title="top: ${i}, left: ${j}" data-t="${i}" data-l="${j}"class="box" style=" border-radius:100px;top:${i}px;left:${j}px;"></div>`
     }
     output += `<div class="box" style=" clear:both; visibility: hidden;"></div>`
   }
