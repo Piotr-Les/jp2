@@ -142,8 +142,11 @@ padding: 10% 0;
 	background-color: #0275d8;
 	color: #f2f2f2;
 	float: left;
-}
 
+}
+.box:nth-child(odd){
+	visibility: hidden;
+}
 /* MEDIA QUERIES */
  /* Small devices (landscape phones) */
  @media screen and (min-width: 411px){ 
