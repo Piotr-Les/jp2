@@ -6,6 +6,7 @@ const sub = document.querySelector("#sub");
 const cake = document.querySelector("#cake-cont");
 const back = document.querySelector("#back");
 const ck = document.querySelector("#cake");
+let resp = gcapgrecaptcha.getResponse();
 document.addEventListener('submit', sendMess);
 sub.addEventListener('click', getUser)
 async function sendMess(e)
@@ -20,7 +21,7 @@ async function sendMess(e)
         'Accept': 'aplication/json, text/plain, */*',
         'Content-type': 'application/json'
       },
-      body: JSON.stringify({ 'name': namev, 'text': messv })
+      body: JSON.stringify({ 'name': namev, 'text': messv, 'captcha': resp })
     })
     .then((res) => res.json())
     .then((data) => console.log(data))
