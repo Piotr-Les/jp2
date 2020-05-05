@@ -5,7 +5,7 @@ const formcont = document.querySelector
 const sub = document.querySelector("#sub");
 const cake = document.querySelector("#cake-cont");
 const back = document.querySelector("#back");
-
+const ck = document.querySelector("#cake");
 document.addEventListener('submit', sendMess);
 sub.addEventListener('click', getUser)
 async function sendMess(e)
@@ -34,6 +34,7 @@ async function sendMess(e)
   mess.value = "";
 
 }
+// return to form function
 back.addEventListener("click", goBack);
 function goBack()
 {
@@ -43,6 +44,15 @@ function goBack()
   formcont.style.display = "block";
 
 }
+// mini div current function
+ck.addEventListener('click', currDiv);
+function currDiv(e)
+{
+  if (e.target.classList.contains("box")) {
+    console.log("div");
+  }
+}
+
 async function getUser()
 {
   cake.classList.toggle("dis-none")
