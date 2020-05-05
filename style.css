@@ -122,6 +122,16 @@ input[type="submit"]{
 	border-radius: 20px;
 	width: 200px;
 }
+#cap{
+	margin: 0 auto;
+	width: auto;
+}
+#cap-cont{
+	text-align: center;
+}
+#cap> div{
+	width: auto !important;
+}
 
 /* cake */
 

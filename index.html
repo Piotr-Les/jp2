@@ -5,6 +5,7 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 	<script src="https://kit.fontawesome.com/3856b27570.js" crossorigin="anonymous"></script>
+	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
 		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
 	<link rel="stylesheet" href="style.css" />
@@ -39,7 +40,12 @@
 			<form id="form" action="">
 				<p><input type="text" id="name" placeholder="Jak masz na imię?" /></p>
 				<p><textarea name="" id="mess" placeholder="Jaki Dar chciałbyś ofiarować?"></textarea></p>
-				<p><input id="sub" type="submit" value="Wyślij" class="btn btn-primary" /></p>
+				<p><input id="sub" type="submit" value="Wyślij" disabled class="btn btn-primary" /></p>
+				<form-group id="cap-cont">
+					<div id="cap" class="g-recaptcha" data-sitekey="6LfP8vIUAAAAAEypU0J7GlHTT_P2Ip920tJ2o5Iz"
+						data-callback="recaptchaCallback">
+					</div>
+				</form-group>
 			</form>
 		</div>
 		<div id="cake-cont" class="container dis-none">
