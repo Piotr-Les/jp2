@@ -1,1 +1,1 @@
-# jp2 - Projekt strony na 100 rocznice urodzin Jana Pawła II
+# jp2 - front for John Paul's II birthday project
