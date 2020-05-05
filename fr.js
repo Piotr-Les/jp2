@@ -6,6 +6,7 @@ const sub = document.querySelector("#sub");
 const cake = document.querySelector("#cake-cont");
 const back = document.querySelector("#back");
 const ck = document.querySelector("#cake");
+const gcapgrecaptcha = document.querySelector('.g-recaptcha');
 let resp = gcapgrecaptcha.getResponse();
 document.addEventListener('submit', sendMess);
 sub.addEventListener('click', getUser)
