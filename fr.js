@@ -13,14 +13,14 @@ async function sendMess(e)
   e.preventDefault();
   let namev = name.value;
   let messv = mess.value;
-  fetch('users.json',
+  fetch('https://api.tort.stage.fdntkrakow.pl/api/v1/cake/',
     {
-      method: 'POST',
-      headers: {
+      'method': 'POST',
+      'headers': {
         'Accept': 'aplication/json, text/plain, */*',
         'Content-type': 'application/json'
       },
-      body: JSON.stringify({ name: name, mess: mess })
+      body: JSON.stringify({ 'name': namev, 'text': messv })
     })
     .then((res) => res.json())
     .then((data) => console.log(data))
