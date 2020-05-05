@@ -34,6 +34,10 @@ async function sendMess(e)
   mess.value = "";
 
 }
+function recaptchaCallback()
+{
+  sub.removeAttribute('disabled')
+}
 // return to form function
 back.addEventListener("click", goBack);
 function goBack()
