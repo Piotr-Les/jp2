@@ -4,6 +4,7 @@ const formcont = document.querySelector
   ("#form-cont");
 const sub = document.querySelector("#sub");
 const cake = document.querySelector("#cake-cont");
+const back = document.querySelector("#back");
 
 document.addEventListener('submit', sendMess);
 sub.addEventListener('click', getUser)
@@ -33,27 +34,38 @@ async function sendMess(e)
   mess.value = "";
 
 }
+back.addEventListener("click", goBack);
+function goBack()
+{
+  back.style.display = "none";
+  cake.classList.toggle("dis-none");
+  cake.style.display = "none";
+  formcont.style.display = "block";
+
+}
 async function getUser()
 {
   cake.classList.toggle("dis-none")
   cake.style.display = "flex"
   let output = `<div class="box" style=" clear:both; visibility: hidden;"></div>`;
-  for (let i = 1; i <= 100; i++) {
-    for (let j = 1; j <= 100; j++) {
+  for (let i = 1; i <= 50; i++) {
+    for (let j = 1; j <= 50; j++) {
       output += `<div id="top${i}_left${j}" title="top: ${i}, left: ${j}" data-t="${i}" data-l="${j}"class="box" style=" border-radius:100px;top:${i}px;left:${j}px;"></div>`
     }
     output += `<div class="box" style=" clear:both; visibility: hidden;"></div>`
   }
   document.querySelector("#cake").innerHTML = output;
-  let srx = 50;
-  let sry = 50;
-  for (let i = 1; i <= 100; i++) {
-    for (let j = 1; j <= 100; j++) {
-      if (Math.ceil(Math.sqrt((i - srx) * (i - srx) + (j - sry) * (j - sry))) >= 50) {
+  let srx = 25;
+  let sry = 25;
+  for (let i = 1; i <= 50; i++) {
+    for (let j = 1; j <= 50; j++) {
+      if (Math.ceil(Math.sqrt((i - srx) * (i - srx) + (j - sry) * (j - sry))) >= 25) {
         document.querySelector(`#top${i}_left${j}`).style.visibility = "hidden";
       }
     }
   }
+  back.style.display = "block";
+
   // fetch("users.json")
   //   .then(function (res)
   //   {
