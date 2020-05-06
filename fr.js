@@ -7,9 +7,15 @@ const cake = document.querySelector("#cake-cont");
 const back = document.querySelector("#back");
 const ck = document.querySelector("#cake");
 
-let resp = grecaptcha.getResponse();
+
 document.addEventListener('submit', sendMess);
 sub.addEventListener('click', getUser)
+
+function onloadCallback()
+{
+  let resp = grecaptcha.getResponse();
+  return resp;
+}
 async function sendMess(e)
 {
   e.preventDefault();
@@ -22,7 +28,7 @@ async function sendMess(e)
         'Accept': 'aplication/json, text/plain, */*',
         'Content-type': 'application/json'
       },
-      body: JSON.stringify({ 'name': namev, 'text': messv, 'captcha': resp })
+      body: JSON.stringify({ 'name': namev, 'text': messv, 'captcha': onloadCallback() })
     })
     .then((res) => res.json())
     .then((data) => console.log(data))
