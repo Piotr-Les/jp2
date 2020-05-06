@@ -99,7 +99,7 @@ textarea{
 }
 textarea:focus{
 	outline: none;
-   border: 1px solid #0275d8;
+   border: 1.5px solid #0275d8;
 }
 textarea::placeholder {      
 	text-align: center; 
@@ -116,7 +116,7 @@ input[type="text"]::placeholder {
 } 
 input:focus{
 	outline: none;
-   border: 1px solid #0275d8;
+   border: 1.5px solid #0275d8;
 }
 input[type="submit"]{
 	border-radius: 20px;
