@@ -1,43 +1,61 @@
 const name = document.querySelector("#name");
 const mess = document.querySelector("#mess");
-const formcont = document.querySelector
-  ("#form-cont");
+const formcont = document.querySelector("#form-cont");
 const sub = document.querySelector("#sub");
 const cake = document.querySelector("#cake-cont");
 const back = document.querySelector("#back");
 const ck = document.querySelector("#cake");
 
-
 document.addEventListener('submit', sendMess);
 sub.addEventListener('click', getUser)
-
+name.addEventListener('keyup', checkName)
+mess.addEventListener('keyup', checkMess)
+function checkName()
+{
+  if (name.value.length <= 128) {
+    name.style.border = "1.5px solid #5cb85c"
+  }
+  else {
+    name.style.border = "1.5px solid #d9534f"
+  }
+}
+function checkMess()
+{
+  if (mess.value.length <= 256) {
+    mess.style.border = "1.5px solid #5cb85c"
+  }
+  else {
+    mess.style.border = "1.5px solid #d9534f"
+  }
+}
 async function sendMess(e)
 {
   e.preventDefault();
   let resp = grecaptcha.getResponse();
   let namev = name.value;
   let messv = mess.value;
-  fetch('https://api.tort.stage.fdntkrakow.pl/api/v1/cake/',
-    {
-      'method': 'POST',
-      'headers': {
-        'Accept': 'aplication/json, text/plain, */*',
-        'Content-type': 'application/json'
-      },
-      body: JSON.stringify({ 'name': namev, 'text': messv, 'captcha': resp })
-    })
-    .then((res) => res.json())
-    .then((data) => console.log(data))
+  if (namev.length <= 128 && messv.length <= 256) {
+    fetch('https://api.tort.stage.fdntkrakow.pl/api/v1/cake/',
+      {
+        'method': 'POST',
+        'headers': {
+          'Accept': 'aplication/json, text/plain, */*',
+          'Content-type': 'application/json'
+        },
+        body: JSON.stringify({ 'name': namev, 'text': messv, 'captcha': resp })
+      })
+      .then((res) => res.json())
+      .then((data) => console.log(data))
 
-
-  formcont.style.display = "none";
-  // formcont.classList.toggle("dis-none")
-
-
-  name.value = "";
-  mess.value = "";
-
+    formcont.style.display = "none";
+    name.value = "";
+    mess.value = "";
+  }
+  else {
+    alert("zbyt duża ilość znaków w czerwonych polach")
+  }
 }
+// button clicable on capcha
 function recaptchaCallback()
 {
   sub.removeAttribute('disabled')
