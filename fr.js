@@ -10,6 +10,7 @@ document.addEventListener('submit', sendMess);
 sub.addEventListener('click', getUser)
 name.addEventListener('keyup', checkName)
 mess.addEventListener('keyup', checkMess)
+
 function checkName()
 {
   if (name.value.length <= 128) {
@@ -78,45 +79,70 @@ function currDiv(e)
     console.log("div");
   }
 }
-
-async function getUser()
+// draw sphere function
+function drawSphere()
 {
-  cake.classList.toggle("dis-none")
-  cake.style.display = "flex"
   let output = `<div class="box" style=" clear:both; visibility: hidden;"></div>`;
   for (let i = 1; i <= 50; i++) {
     for (let j = 1; j <= 50; j++) {
-      output += `<div id="top${i}_left${j}" title="top: ${i}, left: ${j}" data-t="${i}" data-l="${j}"class="box" style=" border-radius:100px;top:${i}px;left:${j}px;"></div>`
+      output += `<div id="top${i}_left${j}" data-vis="1" data-t="${i}" data-l="${j}" data-name="" data-mess="" class="box" style="visibility:hidden;top:${i}px;left:${j}px;"></div>`
     }
     output += `<div class="box" style=" clear:both; visibility: hidden;"></div>`
   }
   document.querySelector("#cake").innerHTML = output;
   let srx = 25;
   let sry = 25;
+  let cn = 1;
   for (let i = 1; i <= 50; i++) {
     for (let j = 1; j <= 50; j++) {
       if (Math.ceil(Math.sqrt((i - srx) * (i - srx) + (j - sry) * (j - sry))) >= 25) {
-        document.querySelector(`#top${i}_left${j}`).style.visibility = "hidden";
+        document.querySelector(`#top${i}_left${j}`).setAttribute('data-vis', '0');
+      }
+      else {
+        document.querySelector(`#top${i}_left${j}`).setAttribute('data-nr', cn);
+        cn++;
+
       }
     }
   }
+  // console.log(cn) 1794
+}
+function assignAt(name, text)
+{
+  for (let i = 1; i <= 50; i++) {
+    for (let j = 1; j <= 50; j++) {
+      if (document.querySelector(`#top${i}_left${j}`).getAttribute('data-vis') == '1') {
+        document.querySelector(`#top${i}_left${j}`).setAttribute('data-name', name);
+        document.querySelector(`#top${i}_left${j}`).setAttribute('data-mess', mess);
+
+      }
+
+    }
+  }
+}
+function drawDot()
+{
+
+  fetch("https://api.tort.stage.fdntkrakow.pl/api/v1/cake/")
+    .then(function (res)
+    {
+      return res.json()
+    })
+    .then((data) =>
+    {
+
+      data.forEach(function (user)
+      {
+        user.assignAt(user.name, user.mess);
+      });
+
+    })
+}
+async function getUser()
+{
+  drawSphere();
+  cake.classList.toggle("dis-none")
+  cake.style.display = "flex";
   back.style.display = "block";
 
-  // fetch("users.json")
-  //   .then(function (res)
-  //   {
-  //     return res.json()
-  //   })
-  //   .then((data) =>
-  //   {
-  //     let output = "";
-  //     data.forEach(function (user)
-  //     {
-  //       output += `
-  //       <div class="box">
-  //       </div>
-  //       `
-  //     });
-  //     document.querySelector("#cake-cont").innerHTML = output;
-  //   })
 }
