@@ -86,6 +86,7 @@ function drawSphere()
   for (let i = 1; i <= 50; i++) {
     for (let j = 1; j <= 50; j++) {
       output += `<div id="top${i}_left${j}" data-vis="1" data-t="${i}" data-l="${j}" data-name="" data-mess="" class="box" style="visibility:hidden;top:${i}px;left:${j}px;"></div>`
+
     }
     output += `<div class="box" style=" clear:both; visibility: hidden;"></div>`
   }
