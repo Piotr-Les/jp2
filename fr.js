@@ -5,6 +5,7 @@ const sub = document.querySelector("#sub");
 const cake = document.querySelector("#cake-cont");
 const back = document.querySelector("#back");
 const ck = document.querySelector("#cake");
+const box = document.querySelector(".box");
 
 document.addEventListener('submit', sendMess);
 sub.addEventListener('click', getUser)
@@ -76,7 +77,7 @@ ck.addEventListener('click', currDiv);
 function currDiv(e)
 {
   if (e.target.classList.contains("box")) {
-    console.log("div");
+    box.classList.toggle('pulse');
   }
 }
 let ar = [];
