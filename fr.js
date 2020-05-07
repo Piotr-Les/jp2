@@ -114,7 +114,7 @@ function assignAt(name, text)
     for (let j = 1; j <= 50; j++) {
       if (document.querySelector(`#top${i}_left${j}`).getAttribute('data-vis') == '1') {
         document.querySelector(`#top${i}_left${j}`).setAttribute('data-name', name);
-        document.querySelector(`#top${i}_left${j}`).setAttribute('data-mess', mess);
+        document.querySelector(`#top${i}_left${j}`).setAttribute('data-mess', text);
 
       }
 
@@ -134,7 +134,7 @@ function drawDot()
 
       data.forEach(function (user)
       {
-        user.assignAt(user.name, user.mess);
+        user.assignAt(user.name, user.text);
       });
 
     })
