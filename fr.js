@@ -78,7 +78,7 @@ function currDiv(e)
 {
   if (e.target.classList.contains("box")) {
     e.target.classList.toggle('pulse');
-    $(e.target.id).siblings().classname = "box";
+    $(e.target.id).siblings().removeClass("pulse")
   }
 }
 let ar = [];
