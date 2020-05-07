@@ -6,6 +6,7 @@ const cake = document.querySelector("#cake-cont");
 const back = document.querySelector("#back");
 const ck = document.querySelector("#cake");
 
+
 document.addEventListener('submit', sendMess);
 sub.addEventListener('click', getUser)
 name.addEventListener('keyup', checkName)
@@ -76,7 +77,11 @@ ck.addEventListener('click', currDiv);
 function currDiv(e)
 {
   if (e.target.classList.contains("box")) {
+
     e.target.classList.toggle('pulse');
+    e.target.siblings().classList.remove('pulse');
+
+
   }
 }
 let ar = [];
