@@ -79,13 +79,14 @@ function currDiv(e)
     console.log("div");
   }
 }
+let ar = [];
 // draw sphere function
 function drawSphere()
 {
   let output = `<div class="box" style=" clear:both; visibility: hidden;"></div>`;
   for (let i = 1; i <= 50; i++) {
     for (let j = 1; j <= 50; j++) {
-      output += `<div id="top${i}_left${j}" data-vis="1" data-t="${i}" data-l="${j}" data-name="" data-mess="" class="box" style="visibility:hidden;top:${i}px;left:${j}px;"></div>`
+      output += `<div id="top${i}_left${j}" data-t="${i}" data-l="${j}" data-name="" data-mess="" class="box" style="visibility:hidden;top:${i}px;left:${j}px;"></div>`
 
     }
     output += `<div class="box" style=" clear:both; visibility: hidden;"></div>`
@@ -94,36 +95,23 @@ function drawSphere()
   let srx = 25;
   let sry = 25;
   let cn = 1;
+
   for (let i = 1; i <= 50; i++) {
     for (let j = 1; j <= 50; j++) {
       if (Math.ceil(Math.sqrt((i - srx) * (i - srx) + (j - sry) * (j - sry))) >= 25) {
-        document.querySelector(`#top${i}_left${j}`).setAttribute('data-vis', '0');
+
       }
       else {
         document.querySelector(`#top${i}_left${j}`).setAttribute('data-nr', cn);
+        ar.push(cn);
         cn++;
-
       }
     }
   }
-  // console.log(cn) 1794
 }
-function assignAt(name, text)
-{
-  for (let i = 1; i <= 50; i++) {
-    for (let j = 1; j <= 50; j++) {
-      if (document.querySelector(`#top${i}_left${j}`).getAttribute('data-vis') == '1') {
-        document.querySelector(`#top${i}_left${j}`).setAttribute('data-name', name);
-        document.querySelector(`#top${i}_left${j}`).setAttribute('data-mess', text);
 
-      }
-
-    }
-  }
-}
 function drawDot()
 {
-
   fetch("https://api.tort.stage.fdntkrakow.pl/api/v1/cake/")
     .then(function (res)
     {
@@ -134,14 +122,27 @@ function drawDot()
 
       data.forEach(function (user)
       {
-        user.assignAt(user.name, user.text);
+        let rdIndex = Math.floor(Math.random() * ar.length)
+        let randomElement = ar[rdIndex];
+        for (let i = 1; i <= 50; i++) {
+          for (let j = 1; j <= 50; j++) {
+            if (document.querySelector(`#top${i}_left${j}`).getAttribute('data-nr') == randomElement) {
+              ar.slice(rdIndex, 1)
+              document.querySelector(`#top${i}_left${j}`).style.visibility = "visible";
+              document.querySelector(`#top${i}_left${j}`).setAttribute('data-name', user.name)
+              document.querySelector(`#top${i}_left${j}`).setAttribute('data-mess', user.text)
+            }
+          }
+        }
       });
 
     })
 }
+
 async function getUser()
 {
   drawSphere();
+  drawDot();
   cake.classList.toggle("dis-none")
   cake.style.display = "flex";
   back.style.display = "block";
