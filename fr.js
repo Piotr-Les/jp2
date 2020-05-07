@@ -77,11 +77,8 @@ ck.addEventListener('click', currDiv);
 function currDiv(e)
 {
   if (e.target.classList.contains("box")) {
-
     e.target.classList.toggle('pulse');
-    $(e.target).siblings().classList.remove('pulse');
-
-
+    $(e.target).siblings().classname = "box";
   }
 }
 let ar = [];
