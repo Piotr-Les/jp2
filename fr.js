@@ -124,12 +124,13 @@ function drawDot()
 
       data.forEach(function (user)
       {
-        let rdIndex = Math.floor(Math.random() * ar.length)
-        let randomElement = ar[rdIndex];
+        // let rdIndex = Math.floor(Math.random() * ar.length)
+        // let randomElement = ar[rdIndex];
+        let randomElement = user.position.position;
         for (let i = 1; i <= 50; i++) {
           for (let j = 1; j <= 50; j++) {
             if (document.querySelector(`#top${i}_left${j}`).getAttribute('data-nr') == randomElement) {
-              ar.slice(rdIndex, 1)
+              // ar.slice(rdIndex, 1)
               document.querySelector(`#top${i}_left${j}`).style.visibility = "visible";
               document.querySelector(`#top${i}_left${j}`).setAttribute('data-name', user.name)
               document.querySelector(`#top${i}_left${j}`).setAttribute('data-mess', user.text)

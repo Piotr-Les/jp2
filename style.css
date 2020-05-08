@@ -173,7 +173,7 @@ padding: 2% 0 0 0;
 	}
 	70%{
 		transform: scale(1);
-		box-shadow: 0 0 0 4px rgba(2, 117, 216, 0);
+		box-shadow: 0 0 0 5px rgba(2, 117, 216, 0);
 		;
 	}
 	100%{
