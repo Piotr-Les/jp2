@@ -83,22 +83,39 @@ color:#0275d8 ;
 	width: 60px;
 }
 .logo-big{
-	width: 150px;
+	width: 140px;
 }
 
 /* utility */
 .space-1{
-	height: 200px;
+	height: 15vh;
 }
 .space-2{
 	height: 100px;
 }
 
 #form-cont{
-padding: 6% 0;
+	padding: 2% 0;
 }
+#info{
+	width: 100%;
+	text-align: justify;
+	line-height: 1.25;
+}
+#info ul{
+	list-style: none;
+	line-height: 1.5;
+	text-align: left;
+}
+#info p{
+	margin-bottom: 0.25rem;
+}
+#info p::first-letter{
+	font-size: 150%;
+}
+
 #form{
-	padding: 6% 0;
+	padding: 4% 0;
 }
 #cont {
 	position: relative;
@@ -282,7 +299,7 @@ padding: 2% 0 0 0;
 			top: 10vh;
 			height: 90vh;
 			width: 50%;
-			background-color: #e0e0e0;
+			background-color:rgba(224, 224, 224, 0.95);
 			display: flex;
 			flex-direction: column;
 			justify-content: space-evenly;

@@ -23,7 +23,7 @@ burger.addEventListener('click', function ()
 // logo i navbar
 const Logo = document.querySelector("#logo-img");
 const navbar = document.querySelector("nav");
-let endOfDocumentTop = 80;
+let endOfDocumentTop = 30;
 let size = 0;
 let clwidth = document.documentElement.clientWidth;
 //
