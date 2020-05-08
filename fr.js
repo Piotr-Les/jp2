@@ -5,6 +5,7 @@ const sub = document.querySelector("#sub");
 const cake = document.querySelector("#cake-cont");
 const back = document.querySelector("#back");
 const ck = document.querySelector("#cake");
+const uinf = document.querySelector("#uinf");
 
 
 document.addEventListener('submit', sendMess);
@@ -79,6 +80,9 @@ function currDiv(e)
   if (e.target.classList.contains("box")) {
     e.target.classList.toggle('pulse');
     $(e.target).siblings().removeClass("pulse");
+    uinf.innerHTML = `${e.target.getAttribute('data-name')} : ${e.target.getAttribute('data-mess')} `;
+    uinf.style.display = "block"
+
   }
 }
 let ar = [];
