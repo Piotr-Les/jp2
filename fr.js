@@ -72,8 +72,9 @@ function goBack()
   formcont.style.display = "block";
 
 }
-// mini div current function
+// mini div click current function
 ck.addEventListener('click', currDiv);
+ck.addEventListener('hover', currDiv);
 function currDiv(e)
 {
   if (e.target.classList.contains("box")) {
