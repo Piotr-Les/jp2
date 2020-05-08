@@ -37,7 +37,28 @@ nav{
 	text-decoration: none;
 	letter-spacing: 1px;
 	font-weight: bold;
-	color: #292b2c;
+	color: #4a5053;
+}
+/* icons hover effects */
+#dzielo:hover{
+color:#0275d8 ;
+
+}
+.fa-facebook-square:hover{
+	color: #3b5998;
+
+}
+.fa-instagram-square:hover{
+	color: #833AB4;
+}
+.fa-twitter-square:hover{
+	color: #1DA1F2;
+}
+.fa-youtube:hover{
+	color: #c4302b;
+}
+.fa-flickr:hover{
+	color: #807e7e;
 }
 /* mobilny burger */
 .burger{
