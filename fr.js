@@ -54,7 +54,7 @@ async function sendMess(e)
     mess.value = "";
   }
   else {
-    alert("zbyt duża ilość znaków w czerwonych polach")
+    alert("zbyt duża ilość znaków w czerwonych polach");
   }
 }
 // button clicable on capcha
@@ -74,7 +74,6 @@ function goBack()
 }
 // mini div click current function
 ck.addEventListener('click', currDiv);
-ck.addEventListener('hover', currDiv);
 function currDiv(e)
 {
   if (e.target.classList.contains("box")) {
