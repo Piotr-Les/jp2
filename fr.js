@@ -81,7 +81,10 @@ function currDiv(e)
   if (e.target.classList.contains("box")) {
     e.target.classList.toggle('pulse');
     $(e.target).siblings().removeClass("pulse");
-    uinf.innerHTML = `${e.target.getAttribute('data-name')} : ${e.target.getAttribute('data-mess')} `;
+    uinf.innerHTML = `${e.target.getAttribute('data-name')} :
+     ${e.target.getAttribute('data-mess')} `;
+    uinfcont.style.top = `${e.target.style.top + 1}px`;
+    uinfcont.style.left = `${e.target.style.left + 1}px`;
     uinfcont.style.display = "block";
 
   }
