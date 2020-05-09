@@ -84,8 +84,8 @@ function currDiv(e)
     $(e.target).siblings().removeClass("pulse");
     uinf.innerHTML = `${e.target.getAttribute('data-name')} :
      ${e.target.getAttribute('data-mess')} `;
-    uinfcont.style.top = `${tg.getAttribute('data-t') + 1}px`;
-    uinfcont.style.left = `${tg.getAttribute('data-l') + 1}px`;
+    uinfcont.style.top = `${parseInt(tg.getAttribute('data-t')) + 1}px`;
+    uinfcont.style.left = `${parseInt(tg.getAttribute('data-l')) + 1}px`;
     uinfcont.style.display = "block";
 
   }
