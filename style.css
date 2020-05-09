@@ -194,13 +194,10 @@ padding: 2% 0 0 0;
 }
 #uinf{
 	margin: 0 auto;
-	border-radius: 40%;
 	padding: 0 10px;
 	width:90%;
 	height: 90%;
-	background-color:rgba(224, 224, 224, 0.95);
 	text-align: center;
-
 }
 
 #back{
