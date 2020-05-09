@@ -189,7 +189,6 @@ padding: 2% 0 0 0;
 /* user info */
 #uinf-cont{
 	overflow-wrap: anywhere;
-	visibility: hidden;
 	height: 240px;
 
 }
@@ -329,7 +328,7 @@ padding: 2% 0 0 0;
 			right: 0px;
 			top: 10vh;
 			height: 90vh;
-			width: 50%;
+			width: 45%;
 			background-color:rgba(224, 224, 224, 0.95);
 			display: flex;
 			flex-direction: column;
