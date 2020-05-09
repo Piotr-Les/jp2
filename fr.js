@@ -153,7 +153,7 @@ async function getUser()
   drawSphere();
   drawDot();
   cake.classList.toggle("dis-none")
-  cake.style.display = "flex";
+  cake.style.display = "grid";
   back.style.display = "block";
 
 }
