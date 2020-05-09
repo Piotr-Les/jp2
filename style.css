@@ -187,6 +187,8 @@ padding: 2% 0 0 0;
 /* user info */
 #uinf{
 	display: none;
+	width:100px;
+	height: 100px;
 	position: absolute;
 	background-color:rgba(224, 224, 224, 0.95);
 	top: 50%;
