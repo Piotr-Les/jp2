@@ -188,6 +188,7 @@ padding: 2% 0 0 0;
 }
 /* user info */
 #uinf-cont{
+	overflow-wrap: anywhere;
 	display: none;
 	position: absolute;
 	top: 5px;
@@ -241,6 +242,9 @@ padding: 2% 0 0 0;
 }
 /* MEDIA QUERIES */
 @media screen and (max-width: 330px){ 
+	#cake{
+		padding-top: 80px;
+	}
 	.box{
 		width: 5.5px;
 		height: 5.5px;
