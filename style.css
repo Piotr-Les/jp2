@@ -173,7 +173,7 @@ input[type="submit"]{
 
 /* cake */
 #cake{
-	padding-top: 50px;
+	margin: 0 auto;
 }
 .dis-none{
 	display: none;
@@ -190,8 +190,7 @@ padding: 2% 0 0 0;
 #uinf-cont{
 	overflow-wrap: anywhere;
 	display: none;
-	position: absolute;
-	top: 5px;
+
 }
 #uinf{
 	margin: 0 auto;
@@ -242,15 +241,13 @@ padding: 2% 0 0 0;
 }
 /* MEDIA QUERIES */
 @media screen and (max-width: 330px){ 
-	#cake{
-		padding-top: 80px;
-	}
 	.box{
 		width: 5.5px;
 		height: 5.5px;
 	}
 }
 @media screen and (min-width: 374px){ 
+
 	.box{
 		width: 6.5px;
 		height: 6.5px;
