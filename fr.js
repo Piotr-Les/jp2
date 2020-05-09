@@ -82,7 +82,7 @@ function currDiv(e)
   if (e.target.classList.contains("box")) {
     e.target.classList.toggle('pulse');
     $(e.target).siblings().removeClass("pulse");
-    uinf.innerHTML = `${e.target.getAttribute('data-name')}: ${e.target.getAttribute('data-mess')} `;
+    uinf.innerHTML = `<strong>${e.target.getAttribute('data-name')}</strong>: ${e.target.getAttribute('data-mess')} `;
     uinfcont.style.visibility = "visible";
   }
 }
