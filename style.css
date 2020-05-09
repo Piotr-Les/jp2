@@ -172,7 +172,9 @@ input[type="submit"]{
 }
 
 /* cake */
-
+#cake{
+	padding: 50px;
+}
 .dis-none{
 	display: none;
 }
@@ -188,20 +190,17 @@ padding: 2% 0 0 0;
 #uinf-cont{
 	display: none;
 	position: absolute;
-	top: 0;
+	top: 5px;
 }
 #uinf{
-
+	margin: 0;
 	width:90%;
 	height: 90%;
 	background-color:rgba(224, 224, 224, 0.95);
 	text-align: center;
+
 }
-.fa-times{
-	position: absolute;
-	top: 0;
-	right: 0;
-}
+
 #back{
 	display: none;
 	text-align: center;
