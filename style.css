@@ -187,15 +187,15 @@ padding: 2% 0 0 0;
 /* user info */
 #uinf-cont{
 	display: none;
+	position: absolute;
+	top: 50%;
+	left: 50%;
 }
 #uinf{
 	width:100px;
 	height: 100px;
-	position: absolute;
 	background-color:rgba(224, 224, 224, 0.95);
 	text-align: center;
-	top: 50%;
-	left: 50%;
 }
 .fa-times{
 	position: absolute;
