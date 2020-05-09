@@ -186,14 +186,16 @@ padding: 2% 0 0 0;
 }
 /* user info */
 #uinf-cont{
-	display: none;
-	position: absolute;
-	top: calc(50% - 150px);
-	left: calc(50% - 150px);
-}
-#uinf{
 	width:150px;
 	height: 150px;
+	display: none;
+	position: absolute;
+	top: calc(280px - 150px);
+	left: calc(280px - 150px);
+}
+#uinf{
+	width:90%;
+	height: 90%;
 	background-color:rgba(224, 224, 224, 0.95);
 	text-align: center;
 }
