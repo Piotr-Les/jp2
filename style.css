@@ -188,6 +188,8 @@ padding: 2% 0 0 0;
 #uinf-cont{
 	display: none;
 	position: absolute;
+	top: 0;
+	left: 0;
 }
 #uinf{
 	margin-top: 10%;
