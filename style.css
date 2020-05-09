@@ -187,12 +187,9 @@ padding: 2% 0 0 0;
 /* user info */
 #uinf-cont{
 	display: none;
-	position: absolute;
-	top: 0;
-	left: 0;
 }
 #uinf{
-	margin-top: 10%;
+
 	width:90%;
 	height: 90%;
 	background-color:rgba(224, 224, 224, 0.95);
