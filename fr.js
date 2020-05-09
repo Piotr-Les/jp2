@@ -83,8 +83,7 @@ function currDiv(e)
     e.target.classList.toggle('pulse');
     $(e.target).siblings().removeClass("pulse");
     uinf.innerHTML = `${e.target.getAttribute('data-name')}: ${e.target.getAttribute('data-mess')} `;
-    uinfcont.style.display = "block";
-
+    uinfcont.style.visibility = "visible";
   }
 }
 let ar = [];
