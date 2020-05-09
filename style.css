@@ -190,10 +190,13 @@ padding: 2% 0 0 0;
 	height: 150px;
 	display: none;
 	position: absolute;
-	top: calc(280px - 150px);
-	left: calc(280px - 150px);
+	top: 50%;
+	left: 50%;
 }
 #uinf{
+	position: absolute;
+	top: 100%;
+	left: 0;
 	width:90%;
 	height: 90%;
 	background-color:rgba(224, 224, 224, 0.95);
