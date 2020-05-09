@@ -185,14 +185,22 @@ justify-content: center;
 padding: 2% 0 0 0;
 }
 /* user info */
-#uinf{
+#uinf-cont{
 	display: none;
+}
+#uinf{
 	width:100px;
 	height: 100px;
 	position: absolute;
 	background-color:rgba(224, 224, 224, 0.95);
+	text-align: center;
 	top: 50%;
 	left: 50%;
+}
+.fa-times{
+	position: absolute;
+	top: 0;
+	right: 0;
 }
 #back{
 	display: none;
