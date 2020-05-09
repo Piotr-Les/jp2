@@ -196,8 +196,6 @@ padding: 2% 0 0 0;
 #uinf{
 	margin: 0 auto;
 	padding: 0 10px;
-	width:90%;
-	height: 90%;
 	text-align: center;
 }
 
@@ -250,7 +248,7 @@ padding: 2% 0 0 0;
 @media screen and (min-width: 374px){ 
 	
 	#uinf-cont{
-		height: 240px;
+		height: 192px;
 	}
 
 	.box{
@@ -261,7 +259,7 @@ padding: 2% 0 0 0;
  /* Small devices (landscape phones) */
  @media screen and (min-width: 411px){ 
 	#uinf-cont{
-		height: 192px;
+		height: 168px;
 	}
 
 	.box{
@@ -272,7 +270,7 @@ padding: 2% 0 0 0;
 }
 @media screen and (min-width: 576px){ 
 	#uinf-cont{
-		height: 144px;
+		height: 120px;
 	}
 
 	.box{
