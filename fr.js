@@ -86,6 +86,8 @@ async function sendMess(e)
   else {
     alert("zbyt duża ilość znaków w czerwonych polach");
   }
+  drawSphere();
+  drawDot();
 }
 async function drawDot()
 {
@@ -116,8 +118,6 @@ async function drawDot()
 
 async function getUser()
 {
-  drawDot();
-  drawSphere();
   cake.classList.toggle("dis-none")
   cake.style.display = "grid";
   back.style.display = "block";
