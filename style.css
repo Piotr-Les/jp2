@@ -222,6 +222,7 @@ input[type="submit"]{
 }
 /* cake */
 #cake{
+		background:url(caketransp.png) no-repeat center center/cover;
 	margin: 0 auto;
 }
 .dis-none{
@@ -232,7 +233,7 @@ input[type="submit"]{
 }
 
 #cake-widecont{
-	background: url('bg-cake.png') no-repeat center center/cover;
+	background: url('bg.png')  center center/cover;
 }
 #cake-cont{
 width: 100%;
@@ -300,9 +301,7 @@ padding: 2% 0 0 0;
 	}
 }
 @media screen and (min-width: 374px){ 
-	#cake-widecont{
-		background: url('360.png') no-repeat center center/cover;
-	}
+	
 	#uinf-cont{
 		height: 192px;
 	}
@@ -337,9 +336,7 @@ padding: 2% 0 0 0;
 }
 /* Medium devices (tablets, 768px and up) */
 @media screen and (min-width: 768px) { 
-	#cake-widecont{
-		background: url('720.png') no-repeat center center/cover;
-	}
+
 	#uinf-cont{
 		height: 96px;
 	}
@@ -366,7 +363,13 @@ padding: 2% 0 0 0;
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media screen and (min-width: 1200px) {
+	#cake{
+		background:none;
+}
 
+#cake-widecont{
+	background: url('bg-cake.png')  center center/cover;
+}
 	.nav-links{
 		width: 60%;
 		}
