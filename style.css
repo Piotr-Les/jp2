@@ -335,6 +335,9 @@ padding: 2% 0 0 0;
 }
 /* Medium devices (tablets, 768px and up) */
 @media screen and (min-width: 768px) { 
+	#cake-widecont{
+		background: url('720.png') no-repeat center center/cover;
+	}
 	#uinf-cont{
 		height: 96px;
 	}
