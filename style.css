@@ -349,6 +349,13 @@ padding: 2% 0 0 0;
  
  /* Large devices (desktops, 992px and up) */
 @media screen and (min-width: 992px) {
+	#cake{
+		background:none;
+}
+
+#cake-widecont{
+	background: url('bg-cake.png')  center center/cover;
+}
 	#uinf-cont{
 		height: 72px;
 	}
@@ -363,13 +370,7 @@ padding: 2% 0 0 0;
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media screen and (min-width: 1200px) {
-	#cake{
-		background:none;
-}
 
-#cake-widecont{
-	background: url('bg-cake.png')  center center/cover;
-}
 	.nav-links{
 		width: 60%;
 		}
