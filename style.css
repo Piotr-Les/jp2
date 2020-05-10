@@ -230,9 +230,7 @@ input[type="submit"]{
 .container{
 	padding: 0;
 }
-#uif{
-	color: #f2f2f2;
-}
+
 #cake-widecont{
 	background: url('bg-cake.png') no-repeat center center/cover;
 }
@@ -250,6 +248,7 @@ padding: 2% 0 0 0;
 
 }
 #uinf{
+	color: white;
 	margin: 0 auto;
 	padding: 0 10px;
 	text-align: center;
@@ -263,7 +262,7 @@ padding: 2% 0 0 0;
 .box{
 	width: 5.5px;
 	height: 5.5px;
-	background-color: rgba(250, 163, 0, 1);
+	background-color: rgba(204, 68, 75, 1);
 	color: #f2f2f2;
 	float: left;
 	border-radius:70%;
@@ -279,11 +278,11 @@ padding: 2% 0 0 0;
 @keyframes pulse{
 	0%{
 		transform: scale(0.9);
-		box-shadow: 0 0 0 0 rgba(250, 163, 0, 0.7);
+		box-shadow: 0 0 0 0 rgba(204, 68, 75, 0.7);
 	}
 	70%{
 		transform: scale(1);
-		box-shadow: 0 0 0 5px rgba(250, 163, 0, 0);
+		box-shadow: 0 0 0 5px rgba(204, 68, 75, 0);
 		;
 	}
 	100%{
