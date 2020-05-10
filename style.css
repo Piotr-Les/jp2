@@ -136,7 +136,7 @@ div.accordion {
   border: none;
   outline: none;
   text-align: left;
-  padding: 15px 8px;
+  padding: 15px 5px;
   color: #444;
   cursor: pointer;
   transition: background-color 0.2s linear;
