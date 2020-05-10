@@ -63,6 +63,8 @@ function checkMess()
 async function sendMess(e)
 {
   e.preventDefault();
+  drawSphere();
+  drawDot();
   let resp = grecaptcha.getResponse();
   let namev = name.value;
   let messv = mess.value;
@@ -86,8 +88,7 @@ async function sendMess(e)
   else {
     alert("zbyt duża ilość znaków w czerwonych polach");
   }
-  drawSphere();
-  drawDot();
+
 }
 async function drawDot()
 {
