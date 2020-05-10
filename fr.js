@@ -63,8 +63,7 @@ function checkMess()
 async function sendMess(e)
 {
   e.preventDefault();
-  drawSphere();
-  drawDot();
+
   let resp = grecaptcha.getResponse();
   let namev = name.value;
   let messv = mess.value;
@@ -84,6 +83,8 @@ async function sendMess(e)
     formcont.style.display = "none";
     name.value = "";
     mess.value = "";
+    drawSphere();
+    drawDot();
   }
   else {
     alert("zbyt duża ilość znaków w czerwonych polach");
@@ -117,12 +118,11 @@ async function drawDot()
     })
 }
 
-async function getUser()
+function getUser()
 {
   cake.classList.toggle("dis-none")
   cake.style.display = "grid";
   back.style.display = "block";
-
 }
 
 // button clicable on capcha
