@@ -124,29 +124,77 @@ color:#0275d8 ;
 	background-color: #f2f2f2;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+/* acordeon */
+
+div.accordion {
+
+  width: 100%;
+  background-color:white;
+  border: none;
+  outline: none;
+  text-align: left;
+  padding: 15px 8px;
+  color: #444;
+  cursor: pointer;
+  transition: background-color 0.2s linear;
+}
+
+div.accordion:after {
+  content: '\f055';
+  font-family: "fontawesome";
+	float: right;
+	vertical-align: middle;
+}
+
+div.accordion.is-open:after {
+  content: '\f056';
+}
+
+div.accordion:hover, button.accordion.is-open {
+  background-color: #ddd;
+}
+
+.accordion-content {
+  background-color: white;
+  border-left: 1px solid whitesmoke;
+  border-right: 1px solid whitesmoke;
+  padding: 0 20px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-in-out;
+}
+.l-opt{
+	text-align: center;
+	background-color: #f2f2f2;
+	min-height: 30px;
+	height: fit-content;
+	padding: 0;
+}
+.l-opt:hover{
+	cursor: pointer;
+	background-color: #ddd;
+}
 /* inputy */
 textarea{
+	background-color: #f2f2f2;
 	overflow:hidden;
 	border: none;
-	border-radius: 20px;
-	width: 300px;
-	height: 40px;
+	width: 100%;
+	height: 80px;
 	text-align: center;
 	line-height: 1.7;
 }
 textarea:focus{
 	outline: none;
 	 border: 1.5px solid #0275d8;
-	 height: 90px;
 }
-textarea::placeholder {      
+textarea::placeholder { 
 	text-align: center; 
 } 
 input[type="text"]{
 	border: none;
-	border-radius: 20px;
-	width: 300px;
-	height: 40px;
+	width: 100%;
+	height: 56.4px;
 	text-align: center;
 }
 input[type="text"]::placeholder {      
@@ -157,8 +205,7 @@ input:focus{
    border: 1.5px solid #0275d8;
 }
 input[type="submit"]{
-	border-radius: 20px;
-	width: 200px;
+	width: 304px;
 }
 #cap{
 	margin: 0 auto;
@@ -170,7 +217,6 @@ input[type="submit"]{
 #cap> div{
 	width: auto !important;
 }
-
 /* cake */
 #cake{
 	margin: 0 auto;
@@ -189,7 +235,6 @@ padding: 2% 0 0 0;
 /* user info */
 #uinf-cont{
 	overflow-wrap: anywhere;
-	visibility: hidden;
 	height: 240px;
 
 }
@@ -203,7 +248,6 @@ padding: 2% 0 0 0;
 	display: none;
 	text-align: center;
 	margin: 0 auto;
-	border-radius: 20px;
 }
 .box{
 	width: 5.5px;
@@ -329,7 +373,7 @@ padding: 2% 0 0 0;
 			right: 0px;
 			top: 10vh;
 			height: 90vh;
-			width: 50%;
+			width: 45%;
 			background-color:rgba(224, 224, 224, 0.95);
 			display: flex;
 			flex-direction: column;
