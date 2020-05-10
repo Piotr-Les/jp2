@@ -300,7 +300,9 @@ padding: 2% 0 0 0;
 	}
 }
 @media screen and (min-width: 374px){ 
-	
+	#cake-widecont{
+		background: url('360.png') no-repeat center center/cover;
+	}
 	#uinf-cont{
 		height: 192px;
 	}
