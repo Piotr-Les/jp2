@@ -7,7 +7,8 @@ const back = document.querySelector("#back");
 const ck = document.querySelector("#cake");
 const uinf = document.querySelector("#uinf");
 const uinfcont = document.querySelector("#uinf-cont");
-
+const accordions = document.querySelector(".accordion");
+const accContent = document.querySelector(".accordion-content");
 
 document.addEventListener('submit', sendMess);
 sub.addEventListener('click', getUser)
@@ -32,6 +33,31 @@ function checkMess()
     mess.style.border = "1.5px solid #d9534f"
   }
 }
+
+// acordeon expand colapse function
+accordions.addEventListener('click', exp)
+function exp()
+{
+  this.classList.toggle('is-open');
+  let content = this.nextElementSibling;
+  if (content.style.maxHeight) {
+    // accordion is currently open, so close it
+    content.style.maxHeight = null;
+  } else {
+    // accordion is currently closed, so open it
+    content.style.maxHeight = content.scrollHeight + "px";
+  }
+}
+// asign value from acordeon function
+accContent.addEventListener('click', asVal);
+function asVal(e)
+{
+  if (e.target.classList.contains("l-opt")) {
+    mess.value = e.target.getAttribute("data-vl");
+  }
+}
+
+//send message funciotn
 async function sendMess(e)
 {
   e.preventDefault();
