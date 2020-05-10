@@ -14,7 +14,7 @@ body{
 }
 /* nawigacja */
 .navbar{
-	padding: 0;
+	padding: 0 15px;
 	height: 10vh;
 }
 nav{
@@ -98,7 +98,7 @@ color:#0275d8 ;
 }
 
 #form-cont{
-	padding: 2% 0;
+	padding: 2% 15px;
 }
 #info{
 	width: 100%;
@@ -227,7 +227,12 @@ input[type="submit"]{
 .dis-none{
 	display: none;
 }
-
+.container{
+	padding: 0;
+}
+#cake-widecont{
+	background: url(bg-cake.png) center center/cover;
+}
 #cake-cont{
 width: 100%;
 height:100%;
