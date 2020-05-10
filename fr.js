@@ -11,7 +11,7 @@ const accordions = document.querySelector(".accordion");
 const accContent = document.querySelector(".accordion-content");
 
 document.addEventListener('submit', sendMess);
-sub.addEventListener('click', getUser)
+// sub.addEventListener('click', getUser)
 name.addEventListener('keyup', checkName)
 mess.addEventListener('keyup', checkMess)
 
@@ -83,13 +83,14 @@ async function sendMess(e)
     formcont.style.display = "none";
     name.value = "";
     mess.value = "";
-    drawSphere();
-    drawDot();
+
   }
   else {
     alert("zbyt duża ilość znaków w czerwonych polach");
   }
-
+  drawSphere();
+  drawDot();
+  getUser();
 }
 async function drawDot()
 {
