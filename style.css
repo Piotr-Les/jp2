@@ -230,9 +230,7 @@ input[type="submit"]{
 .container{
 	padding: 0;
 }
-#uif{
-	color: #f2f2f2;
-}
+
 #cake-widecont{
 	background: url('bg-cake.png') no-repeat center center/cover;
 }
@@ -250,6 +248,7 @@ padding: 2% 0 0 0;
 
 }
 #uinf{
+	color: white;
 	margin: 0 auto;
 	padding: 0 10px;
 	text-align: center;
