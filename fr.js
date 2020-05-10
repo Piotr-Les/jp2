@@ -87,6 +87,16 @@ async function sendMess(e)
     alert("zbyt duża ilość znaków w czerwonych polach");
   }
 }
+function getUser()
+{
+  drawSphere();
+  drawDot();
+  cake.classList.toggle("dis-none")
+  cake.style.display = "grid";
+  back.style.display = "block";
+
+}
+
 // button clicable on capcha
 function recaptchaCallback()
 {
@@ -142,7 +152,7 @@ function drawSphere()
 
 }
 
-function drawDot()
+async function drawDot()
 {
   fetch("https://api.tort.stage.fdntkrakow.pl/api/v1/cake/")
     .then(function (res)
@@ -171,12 +181,3 @@ function drawDot()
     })
 }
 
-async function getUser()
-{
-  drawSphere();
-  drawDot();
-  cake.classList.toggle("dis-none")
-  cake.style.display = "grid";
-  back.style.display = "block";
-
-}
