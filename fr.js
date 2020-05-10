@@ -3,6 +3,7 @@ const mess = document.querySelector("#mess");
 const formcont = document.querySelector("#form-cont");
 const sub = document.querySelector("#sub");
 const cake = document.querySelector("#cake-cont");
+const cakewd = document.querySelector("#cake-widecont");
 const back = document.querySelector("#back");
 const ck = document.querySelector("#cake");
 const uinf = document.querySelector("#uinf");
@@ -121,7 +122,8 @@ async function drawDot()
 
 function getUser()
 {
-  cake.classList.toggle("dis-none")
+  cake.classList.toggle("dis-none");
+  cakewd.classList.toggle("dis-none");
   cake.style.display = "grid";
   back.style.display = "block";
 }
@@ -137,6 +139,7 @@ function goBack()
 {
   back.style.display = "none";
   cake.classList.toggle("dis-none");
+  cakewd.classList.toggle("dis-none");
   cake.style.display = "none";
   formcont.style.display = "block";
 

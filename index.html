@@ -107,7 +107,7 @@
 
 				</p>
 
-				<p><input id="sub" type="submit" disabled value="Wyślij" class="btn btn-primary" /></p>
+				<p><input id="sub" type="submit" value="Wyślij" class="btn btn-primary" /></p>
 				<form-group id="cap-cont">
 					<div id="cap" class="g-recaptcha" data-sitekey="6LfP8vIUAAAAAEypU0J7GlHTT_P2Ip920tJ2o5Iz"
 						data-callback="recaptchaCallback">
@@ -115,18 +115,22 @@
 				</form-group>
 			</form>
 		</div>
-		<div id="cake-cont" class="container dis-none">
-			<div id="uinf-cont">
-				<p id="uinf"></p>
-			</div>
-			<div id="cake">
+
+		<div id='cake-widecont' class="dis-none">
+			<div id="cake-cont" class="container dis-none">
+
+				<div id="uinf-cont">
+					<p id="uinf"></p>
+				</div>
+				<div id="cake">
+				</div>
+
 
 			</div>
-
-
+			<p></p><input type="button" id="back" value="wstecz" class="btn btn-primary" /></p>
+			<p style="visibility: hidden;">&nbsp;</p>
 		</div>
-		<p></p><input type="button" id="back" value="wstecz" class="btn btn-primary" /></p>
-		<p style="visibility: hidden;">&nbsp;</p>
+
 	</div>
 	<div class="space-2"></div>
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
