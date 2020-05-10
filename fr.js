@@ -87,10 +87,37 @@ async function sendMess(e)
     alert("zbyt duża ilość znaków w czerwonych polach");
   }
 }
+async function drawDot()
+{
+  fetch("https://api.tort.stage.fdntkrakow.pl/api/v1/cake/")
+    .then(function (res)
+    {
+      return res.json()
+    })
+    .then((data) =>
+    {
+      data.forEach(function (user)
+      {
+        let randomElement = user.position.position;
+        for (let i = 1; i <= 50; i++) {
+          for (let j = 1; j <= 50; j++) {
+            if (document.querySelector(`#top${i}_left${j}`).getAttribute('data-nr') == randomElement) {
+
+              document.querySelector(`#top${i}_left${j}`).style.visibility = "visible";
+              document.querySelector(`#top${i}_left${j}`).setAttribute('data-name', user.name)
+              document.querySelector(`#top${i}_left${j}`).setAttribute('data-mess', user.text)
+            }
+          }
+        }
+      });
+
+    })
+}
+
 async function getUser()
 {
-  drawSphere();
   drawDot();
+  drawSphere();
   cake.classList.toggle("dis-none")
   cake.style.display = "grid";
   back.style.display = "block";
@@ -152,32 +179,5 @@ async function drawSphere()
 
 }
 
-async function drawDot()
-{
-  fetch("https://api.tort.stage.fdntkrakow.pl/api/v1/cake/")
-    .then(function (res)
-    {
-      return res.json()
-    })
-    .then((data) =>
-    {
 
-      data.forEach(function (user)
-      {
-
-        let randomElement = user.position.position;
-        for (let i = 1; i <= 50; i++) {
-          for (let j = 1; j <= 50; j++) {
-            if (document.querySelector(`#top${i}_left${j}`).getAttribute('data-nr') == randomElement) {
-
-              document.querySelector(`#top${i}_left${j}`).style.visibility = "visible";
-              document.querySelector(`#top${i}_left${j}`).setAttribute('data-name', user.name)
-              document.querySelector(`#top${i}_left${j}`).setAttribute('data-mess', user.text)
-            }
-          }
-        }
-      });
-
-    })
-}
 
