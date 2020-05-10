@@ -15,24 +15,6 @@ sub.addEventListener('click', getUser)
 name.addEventListener('keyup', checkName)
 mess.addEventListener('keyup', checkMess)
 
-function checkName()
-{
-  if (name.value.length <= 128) {
-    name.style.border = "1.5px solid #5cb85c"
-  }
-  else {
-    name.style.border = "1.5px solid #d9534f"
-  }
-}
-function checkMess()
-{
-  if (mess.value.length <= 256) {
-    mess.style.border = "1.5px solid #5cb85c"
-  }
-  else {
-    mess.style.border = "1.5px solid #d9534f"
-  }
-}
 
 // acordeon expand colapse function
 accordions.addEventListener('click', exp)
@@ -54,6 +36,26 @@ function asVal(e)
 {
   if (e.target.classList.contains("l-opt")) {
     mess.value = e.target.getAttribute("data-vl");
+    mess.style.border = "1.5px solid #5cb85c"
+  }
+}
+
+function checkName()
+{
+  if (name.value.length <= 128) {
+    name.style.border = "1.5px solid #5cb85c"
+  }
+  else {
+    name.style.border = "1.5px solid #d9534f"
+  }
+}
+function checkMess()
+{
+  if (mess.value.length <= 256) {
+    mess.style.border = "1.5px solid #5cb85c"
+  }
+  else {
+    mess.style.border = "1.5px solid #d9534f"
   }
 }
 

@@ -172,6 +172,7 @@ div.accordion:hover, button.accordion.is-open {
 }
 .l-opt:hover{
 	cursor: pointer;
+	background-color: #ddd;
 }
 /* inputy */
 textarea{
