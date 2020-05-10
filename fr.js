@@ -87,7 +87,12 @@ async function sendMess(e) {
                 body: JSON.stringify({'name': namev, 'text': messv, 'captcha': resp})
             })
             .then((res) => res.json())
-            .then((data) => console.log(data))
+            .then(
+                (data) => {
+                    console.log(data);
+                    drawDot();
+                }
+            );
 
         formcont.style.display = "none";
         name.value = "";
