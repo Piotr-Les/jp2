@@ -87,7 +87,7 @@ async function sendMess(e)
     alert("zbyt duża ilość znaków w czerwonych polach");
   }
 }
-function getUser()
+async function getUser()
 {
   drawSphere();
   drawDot();
@@ -124,7 +124,7 @@ function currDiv(e)
   }
 }
 // draw sphere function
-function drawSphere()
+async function drawSphere()
 {
   let output = `<div class="box" style=" clear:both; visibility: hidden;"></div>`;
   for (let i = 1; i <= 50; i++) {
