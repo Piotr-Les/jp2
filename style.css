@@ -230,8 +230,11 @@ input[type="submit"]{
 .container{
 	padding: 0;
 }
+#uif{
+	color: #f2f2f2;
+}
 #cake-widecont{
-	background: url(bg-cake.png) center center/cover;
+	background: url('bg-cake.png') no-repeat center center/cover;
 }
 #cake-cont{
 width: 100%;
