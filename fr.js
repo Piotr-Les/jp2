@@ -11,9 +11,9 @@ const accordions = document.querySelector(".accordion");
 const accContent = document.querySelector(".accordion-content");
 
 document.addEventListener('submit', sendMess);
-// sub.addEventListener('click', getUser)
-name.addEventListener('keyup', checkName)
-mess.addEventListener('keyup', checkMess)
+sub.addEventListener('click', getUser);
+name.addEventListener('keyup', checkName);
+mess.addEventListener('keyup', checkMess);
 
 
 // acordeon expand colapse function
@@ -90,7 +90,7 @@ async function sendMess(e)
   }
   drawSphere();
   drawDot();
-  getUser();
+
 }
 async function drawDot()
 {
