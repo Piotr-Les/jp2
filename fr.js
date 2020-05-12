@@ -15,7 +15,7 @@ const notifClose = document.querySelector(".notifClose")
 
 let backendUrl;
 
-if (location.hostname === 'tort.fdnt.pl' || location.hostname === 'www.tort.fdnt.pl') {
+if (location.hostname === 'tort.fdnt.pl' || location.hostname === 'www.tort.fdnt.pl' || location.hostname === 'tort.dzielo.pl' || location.hostname === 'www.tort.dzielo.pl') {
     backendUrl = 'https://api.tort.fdntkrakow.pl';
 } else if (location.hostname === 'tort.stage.fdntkrakow.pl' || location.hostname === 'www.tort.stage.fdntkrakow.pl') {
     backendUrl = 'https://api.tort.stage.fdntkrakow.pl';
