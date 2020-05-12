@@ -10,6 +10,8 @@ const uinf = document.querySelector("#uinf");
 const uinfcont = document.querySelector("#uinf-cont");
 const accordions = document.querySelector(".accordion");
 const accContent = document.querySelector(".accordion-content");
+const notifCont = document.querySelector(".notifCont");
+const notifClose = document.querySelector(".notifClose")
 
 let backendUrl;
 
@@ -31,7 +33,8 @@ mess.addEventListener('keyup', checkMess);
 // acordeon expand colapse function
 accordions.addEventListener('click', exp)
 
-function exp() {
+function exp()
+{
     this.classList.toggle('is-open');
     let content = this.nextElementSibling;
     if (content.style.maxHeight) {
@@ -46,14 +49,16 @@ function exp() {
 // asign value from acordeon function
 accContent.addEventListener('click', asVal);
 
-function asVal(e) {
+function asVal(e)
+{
     if (e.target.classList.contains("l-opt")) {
         mess.value = e.target.getAttribute("data-vl");
         mess.style.border = "1.5px solid #5cb85c"
     }
 }
 
-function checkName() {
+function checkName()
+{
     if (name.value.length <= 128) {
         name.style.border = "1.5px solid #5cb85c"
     } else {
@@ -61,22 +66,37 @@ function checkName() {
     }
 }
 
-function checkMess() {
+function checkMess()
+{
     if (mess.value.length <= 256) {
         mess.style.border = "1.5px solid #5cb85c"
     } else {
         mess.style.border = "1.5px solid #d9534f"
     }
 }
-
+notifClose.addEventListener('click', function ()
+{
+    notifCont.classList.remove("notifActive");
+})
+function showNot()
+{
+    notifCont.classList.add("notifActive");
+    setTimeout(function ()
+    {
+        notifCont.classList.remove("notifActive");
+    }, 6000);
+}
 //send message funciotn
-async function sendMess(e) {
+async function sendMess(e)
+{
+
     e.preventDefault();
 
     let resp = grecaptcha.getResponse();
     let namev = name.value;
     let messv = mess.value;
     if (namev.length <= 128 && messv.length <= 256) {
+        showNot()
         fetch(`${backendUrl}/api/v1/cake/`,
             {
                 'method': 'POST',
@@ -84,11 +104,12 @@ async function sendMess(e) {
                     'Accept': 'aplication/json, text/plain, */*',
                     'Content-type': 'application/json'
                 },
-                body: JSON.stringify({'name': namev, 'text': messv, 'captcha': resp})
+                body: JSON.stringify({ 'name': namev, 'text': messv, 'captcha': resp })
             })
             .then((res) => res.json())
             .then(
-                (data) => {
+                (data) =>
+                {
                     console.log(data);
                     drawDot();
                 }
@@ -97,7 +118,6 @@ async function sendMess(e) {
         formcont.style.display = "none";
         name.value = "";
         mess.value = "";
-
     } else {
         alert("zbyt duża ilość znaków w czerwonych polach");
     }
@@ -106,13 +126,17 @@ async function sendMess(e) {
 
 }
 
-async function drawDot() {
+async function drawDot()
+{
     fetch(`${backendUrl}/api/v1/cake/`)
-        .then(function (res) {
+        .then(function (res)
+        {
             return res.json()
         })
-        .then((data) => {
-            data.forEach(function (cakeFragment) {
+        .then((data) =>
+        {
+            data.forEach(function (cakeFragment)
+            {
                 let randomElement = cakeFragment.position.position;
                 for (let i = 1; i <= 50; i++) {
                     for (let j = 1; j <= 50; j++) {
@@ -129,7 +153,9 @@ async function drawDot() {
         })
 }
 
-function getUser() {
+function getUser()
+{
+
     cake.classList.toggle("dis-none");
     cakewd.classList.toggle("dis-none");
     cake.style.display = "grid";
@@ -137,14 +163,16 @@ function getUser() {
 }
 
 // button clicable on capcha
-function recaptchaCallback() {
+function recaptchaCallback()
+{
     sub.removeAttribute('disabled')
 }
 
 // return to form function
 back.addEventListener("click", goBack);
 
-function goBack() {
+function goBack()
+{
     back.style.display = "none";
     cake.classList.toggle("dis-none");
     cakewd.classList.toggle("dis-none");
@@ -156,7 +184,8 @@ function goBack() {
 // mini div click current function
 ck.addEventListener('click', currDiv);
 
-function currDiv(e) {
+function currDiv(e)
+{
     let tg = e.target;
     if (e.target.classList.contains("box")) {
         e.target.classList.toggle('pulse');
@@ -166,7 +195,8 @@ function currDiv(e) {
 }
 
 // draw sphere function
-async function drawSphere() {
+async function drawSphere()
+{
     let output = `<div class="box" style=" clear:both; visibility: hidden;"></div>`;
     for (let i = 1; i <= 50; i++) {
         for (let j = 1; j <= 50; j++) {
