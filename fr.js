@@ -11,11 +11,13 @@ const uinfcont = document.querySelector("#uinf-cont");
 const accordions = document.querySelector(".accordion");
 const accContent = document.querySelector(".accordion-content");
 const notifCont = document.querySelector(".notifCont");
-const notifClose = document.querySelector(".notifClose")
+const notifClose = document.querySelector(".notifClose");
+const modalError = document.querySelector('#modalError');
+const showCakeButton = document.querySelector('#showCake');
 
 let backendUrl;
 
-if (location.hostname === 'tort.fdnt.pl' || location.hostname === 'www.tort.fdnt.pl') {
+if (location.hostname === 'tort.fdnt.pl' || location.hostname === 'www.tort.fdnt.pl' || location.hostname === 'tort.dzielo.pl' || location.hostname === 'www.tort.dzielo.pl') {
     backendUrl = 'https://api.tort.fdntkrakow.pl';
 } else if (location.hostname === 'tort.stage.fdntkrakow.pl' || location.hostname === 'www.tort.stage.fdntkrakow.pl') {
     backendUrl = 'https://api.tort.stage.fdntkrakow.pl';
@@ -25,16 +27,15 @@ if (location.hostname === 'tort.fdnt.pl' || location.hostname === 'www.tort.fdnt
 
 
 document.addEventListener('submit', sendMess);
-sub.addEventListener('click', getUser);
+// sub.addEventListener('click', getUser); now getUser is called from sendMess function
 name.addEventListener('keyup', checkName);
 mess.addEventListener('keyup', checkMess);
-
+showCakeButton.addEventListener('click', showCake);
 
 // acordeon expand colapse function
 accordions.addEventListener('click', exp)
 
-function exp()
-{
+function exp() {
     this.classList.toggle('is-open');
     let content = this.nextElementSibling;
     if (content.style.maxHeight) {
@@ -49,16 +50,15 @@ function exp()
 // asign value from acordeon function
 accContent.addEventListener('click', asVal);
 
-function asVal(e)
-{
+function asVal(e) {
     if (e.target.classList.contains("l-opt")) {
         mess.value = e.target.getAttribute("data-vl");
-        mess.style.border = "1.5px solid #5cb85c"
+        mess.style.border = "1.5px solid #5cb85c";
+        $('html').animate({scrollTop: $(mess).offset().top}, 'slow');
     }
 }
 
-function checkName()
-{
+function checkName() {
     if (name.value.length <= 128) {
         name.style.border = "1.5px solid #5cb85c"
     } else {
@@ -66,37 +66,36 @@ function checkName()
     }
 }
 
-function checkMess()
-{
+function checkMess() {
     if (mess.value.length <= 256) {
         mess.style.border = "1.5px solid #5cb85c"
     } else {
         mess.style.border = "1.5px solid #d9534f"
     }
 }
-notifClose.addEventListener('click', function ()
-{
+
+notifClose.addEventListener('click', function () {
     notifCont.classList.remove("notifActive");
 })
-function showNot()
-{
+
+function showNot() {
     notifCont.classList.add("notifActive");
-    setTimeout(function ()
-    {
+    setTimeout(function () {
         notifCont.classList.remove("notifActive");
     }, 6000);
 }
-//send message funciotn
-async function sendMess(e)
-{
+
+//send message function
+async function sendMess(e) {
 
     e.preventDefault();
 
     let resp = grecaptcha.getResponse();
-    let namev = name.value;
-    let messv = mess.value;
-    if (namev.length <= 128 && messv.length <= 256) {
-        showNot()
+    let namev = name.value.trim();
+    let messv = mess.value.trim();
+    if (namev.length <= 128 && messv.length <= 256 && namev.length > 0 && messv.length > 0 && resp) {
+        getUser();
+        showNot();
         fetch(`${backendUrl}/api/v1/cake/`,
             {
                 'method': 'POST',
@@ -104,12 +103,11 @@ async function sendMess(e)
                     'Accept': 'aplication/json, text/plain, */*',
                     'Content-type': 'application/json'
                 },
-                body: JSON.stringify({ 'name': namev, 'text': messv, 'captcha': resp })
+                body: JSON.stringify({'name': namev, 'text': messv, 'captcha': resp})
             })
             .then((res) => res.json())
             .then(
-                (data) =>
-                {
+                (data) => {
                     console.log(data);
                     drawDot();
                 }
@@ -119,24 +117,48 @@ async function sendMess(e)
         name.value = "";
         mess.value = "";
     } else {
-        alert("zbyt duża ilość znaków w czerwonych polach");
+        const modalBody = $(modalError).find('.modal-body');
+        modalBody.html('');
+        const olElement = $('<ol/>', {
+            class: 'p-2'
+        });
+
+        if (namev.length === 0) {
+            olElement.append('<li>Twoje imie nie może być puste.</li>')
+        }
+
+        if (messv.length === 0) {
+            olElement.append('<li>Wpisz jaki Dar składasz.</li>')
+        }
+
+        if (namev.length > 128) {
+            olElement.append('<li>Twoje imie nie może zawierać więcej niż 128 znaków.</li>')
+        }
+
+        if (messv.length > 256) {
+            olElement.append('<li>Wpisany Dar nie może przekraczać 256 znaków.</li>')
+        }
+
+        if(!resp) {
+            olElement.append('<li>Kliknij w pole "Nie jestem robotem".</li>')
+        }
+        modalBody.append(olElement);
+        $(modalError).modal('show');
+
+        return;
     }
     drawSphere();
     drawDot();
 
 }
 
-async function drawDot()
-{
+async function drawDot() {
     fetch(`${backendUrl}/api/v1/cake/`)
-        .then(function (res)
-        {
+        .then(function (res) {
             return res.json()
         })
-        .then((data) =>
-        {
-            data.forEach(function (cakeFragment)
-            {
+        .then((data) => {
+            data.forEach(function (cakeFragment) {
                 let randomElement = cakeFragment.position.position;
                 for (let i = 1; i <= 50; i++) {
                     for (let j = 1; j <= 50; j++) {
@@ -153,8 +175,7 @@ async function drawDot()
         })
 }
 
-function getUser()
-{
+function getUser() {
 
     cake.classList.toggle("dis-none");
     cakewd.classList.toggle("dis-none");
@@ -163,16 +184,14 @@ function getUser()
 }
 
 // button clicable on capcha
-function recaptchaCallback()
-{
+function recaptchaCallback() {
     sub.removeAttribute('disabled')
 }
 
 // return to form function
 back.addEventListener("click", goBack);
 
-function goBack()
-{
+function goBack() {
     back.style.display = "none";
     cake.classList.toggle("dis-none");
     cakewd.classList.toggle("dis-none");
@@ -184,8 +203,7 @@ function goBack()
 // mini div click current function
 ck.addEventListener('click', currDiv);
 
-function currDiv(e)
-{
+function currDiv(e) {
     let tg = e.target;
     if (e.target.classList.contains("box")) {
         e.target.classList.toggle('pulse');
@@ -195,8 +213,7 @@ function currDiv(e)
 }
 
 // draw sphere function
-async function drawSphere()
-{
+async function drawSphere() {
     let output = `<div class="box" style=" clear:both; visibility: hidden;"></div>`;
     for (let i = 1; i <= 50; i++) {
         for (let j = 1; j <= 50; j++) {
@@ -223,4 +240,9 @@ async function drawSphere()
 }
 
 
-
+function showCake() {
+    formcont.style.display = "none";
+    getUser();
+    drawSphere();
+    drawDot();
+}
