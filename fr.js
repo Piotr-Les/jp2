@@ -139,7 +139,7 @@ async function sendMess(e) {
             olElement.append('<li>Wpisany Dar nie może przekraczać 256 znaków.</li>')
         }
 
-        if(!resp) {
+        if (!resp) {
             olElement.append('<li>Kliknij w pole "Nie jestem robotem".</li>')
         }
         modalBody.append(olElement);
@@ -162,11 +162,12 @@ async function drawDot() {
                 let randomElement = cakeFragment.position.position;
                 for (let i = 1; i <= 50; i++) {
                     for (let j = 1; j <= 50; j++) {
-                        if (document.querySelector(`#top${i}_left${j}`).getAttribute('data-nr') == randomElement) {
+                        let cakeElement = document.querySelector(`#top${i}_left${j}`);
+                        if (parseInt(cakeElement.getAttribute('data-nr')) === randomElement) {
 
-                            document.querySelector(`#top${i}_left${j}`).style.visibility = "visible";
-                            document.querySelector(`#top${i}_left${j}`).setAttribute('data-name', cakeFragment.name);
-                            document.querySelector(`#top${i}_left${j}`).setAttribute('data-mess', cakeFragment.text);
+                            cakeElement.style.visibility = "visible";
+                            cakeElement.setAttribute('data-name', cakeFragment.name);
+                            cakeElement.setAttribute('data-mess', cakeFragment.text);
                         }
                     }
                 }
