@@ -122,9 +122,11 @@ color:#0275d8 ;
 	}
 .logo-tiny{
 	width: 60px;
+	border-radius: 50%;
 }
 .logo-big{
 	width: 140px;
+	border-radius: 50%;
 }
 
 /* utility */
