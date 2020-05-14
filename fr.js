@@ -271,6 +271,7 @@ async function drawSphere()
 function showCake()
 {
     formcont.style.display = "none";
+    HowManyCandles();
     getUser();
     drawSphere();
     drawDot();
