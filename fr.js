@@ -191,23 +191,26 @@ async function drawDot()
 }
 function HowManyCandles()
 {
-    for (let i = 1; i <= 50; i++) {
-        for (let j = 1; j <= 50; j++) {
-            let cakeElement = document.querySelector(`#top${i}_left${j}`);
-            if (cakeElement.style.visibility == "visible") {
+    fetch(`${backendUrl}/api/v1/cake/`)
+        .then(function (res)
+        {
+            return res.json()
+        })
+        .then((data) =>
+        {
+            data.forEach(function (user)
+            {
                 candles++;
-            }
-        }
-    }
-    space2inf.innerHTML = `mamy już ${candles} świeczek, co daje nam ${Math.floor(candles / 100)} tortów!`;
-    candles = 0;
+            });
+            space2inf.innerHTML = `mamy już ${candles} świeczek, co daje nam ${Math.floor(candles / 100)} tortów!`;
+            candles = 0;
+        })
+
+
 }
-
-
 
 function getUser()
 {
-
     cake.classList.toggle("dis-none");
     cakewd.classList.toggle("dis-none");
     cake.style.display = "grid";
