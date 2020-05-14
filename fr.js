@@ -178,11 +178,10 @@ async function drawDot()
                     for (let j = 1; j <= 50; j++) {
                         let cakeElement = document.querySelector(`#top${i}_left${j}`);
                         if (parseInt(cakeElement.getAttribute('data-nr')) === randomElement) {
-                            candles++;
                             cakeElement.style.visibility = "visible";
                             cakeElement.setAttribute('data-name', cakeFragment.name);
                             cakeElement.setAttribute('data-mess', cakeFragment.text);
-                            HowManyCandles();
+
                         }
                     }
                 }
@@ -192,6 +191,14 @@ async function drawDot()
 }
 function HowManyCandles()
 {
+    for (let i = 1; i <= 50; i++) {
+        for (let j = 1; j <= 50; j++) {
+            let cakeElement = document.querySelector(`#top${i}_left${j}`);
+            if (cakeElement.style.visibility == "visible") {
+                candles++;
+            }
+        }
+    }
     space2inf.innerHTML = `mamy już ${candles} świeczek, co daje nam ${Math.floor(candles / 100)} tortów!`;
     candles = 0;
 }
@@ -200,12 +207,12 @@ function HowManyCandles()
 
 function getUser()
 {
-
+    HowManyCandles();
     cake.classList.toggle("dis-none");
     cakewd.classList.toggle("dis-none");
     cake.style.display = "grid";
     back.style.display = "block";
-    HowManyCandles();
+
 }
 
 // button clicable on capcha
@@ -272,7 +279,6 @@ async function drawSphere()
 function showCake()
 {
     formcont.style.display = "none";
-    HowManyCandles();
     getUser();
     drawSphere();
     drawDot();
