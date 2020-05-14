@@ -178,11 +178,11 @@ async function drawDot()
                     for (let j = 1; j <= 50; j++) {
                         let cakeElement = document.querySelector(`#top${i}_left${j}`);
                         if (parseInt(cakeElement.getAttribute('data-nr')) === randomElement) {
-
+                            candles++;
                             cakeElement.style.visibility = "visible";
                             cakeElement.setAttribute('data-name', cakeFragment.name);
                             cakeElement.setAttribute('data-mess', cakeFragment.text);
-                            candles++;
+                            HowManyCandles();
                         }
                     }
                 }
