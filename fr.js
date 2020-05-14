@@ -192,7 +192,8 @@ async function drawDot()
 }
 function HowManyCandles()
 {
-    space2inf.innerHTML = `mamy już ${candles} świeczek, co daje nam ${Math.floor(candles / 100)} tortów!`
+    space2inf.innerHTML = `mamy już ${candles} świeczek, co daje nam ${Math.floor(candles / 100)} tortów!`;
+    candles = 0;
 }
 
 
