@@ -203,11 +203,11 @@ function HowManyCandles()
                 candles++;
             });
             if (Math.floor(candles / 100) == 1) {
-                space2inf.innerHTML = `mamy już ${candles} świeczek, co daje nam ${Math.floor(candles / 100)} tort!`;
+                space2inf.innerHTML = `Mamy już ${candles} świeczek, co daje nam ${Math.floor(candles / 100)} tort!`;
             } else if (Math.floor(candles / 100) > 1 && Math.floor(candles / 100) <= 4) {
-                space2inf.innerHTML = `mamy już ${candles} świeczek, co daje nam ${Math.floor(candles / 100)} torty!`;
+                space2inf.innerHTML = `Mamy już ${candles} świeczek, co daje nam ${Math.floor(candles / 100)} torty!`;
             } else {
-                space2inf.innerHTML = `mamy już ${candles} świeczek, co daje nam ${Math.floor(candles / 100)} tortów!`;
+                space2inf.innerHTML = `Mamy już ${candles} świeczek, co daje nam ${Math.floor(candles / 100)} tortów!`;
             }
             candles = 0;
         })
