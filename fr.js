@@ -14,8 +14,9 @@ const notifCont = document.querySelector(".notifCont");
 const notifClose = document.querySelector(".notifClose");
 const modalError = document.querySelector('#modalError');
 const showCakeButton = document.querySelector('#showCake');
-
+const space2inf = document.querySelector("#space-2inf")
 let backendUrl;
+let candles = 0;
 
 if (location.hostname === 'tort.fdnt.pl' || location.hostname === 'www.tort.fdnt.pl' || location.hostname === 'tort.dzielo.pl' || location.hostname === 'www.tort.dzielo.pl') {
     backendUrl = 'https://api.tort.fdntkrakow.pl';
@@ -35,7 +36,8 @@ showCakeButton.addEventListener('click', showCake);
 // acordeon expand colapse function
 accordions.addEventListener('click', exp)
 
-function exp() {
+function exp()
+{
     this.classList.toggle('is-open');
     let content = this.nextElementSibling;
     if (content.style.maxHeight) {
@@ -50,15 +52,17 @@ function exp() {
 // asign value from acordeon function
 accContent.addEventListener('click', asVal);
 
-function asVal(e) {
+function asVal(e)
+{
     if (e.target.classList.contains("l-opt")) {
         mess.value = e.target.getAttribute("data-vl");
         mess.style.border = "1.5px solid #5cb85c";
-        $('html').animate({scrollTop: $(mess).offset().top}, 'slow');
+        $('html').animate({ scrollTop: $(mess).offset().top }, 'slow');
     }
 }
 
-function checkName() {
+function checkName()
+{
     if (name.value.length <= 128) {
         name.style.border = "1.5px solid #5cb85c"
     } else {
@@ -66,7 +70,8 @@ function checkName() {
     }
 }
 
-function checkMess() {
+function checkMess()
+{
     if (mess.value.length <= 256) {
         mess.style.border = "1.5px solid #5cb85c"
     } else {
@@ -74,19 +79,23 @@ function checkMess() {
     }
 }
 
-notifClose.addEventListener('click', function () {
+notifClose.addEventListener('click', function ()
+{
     notifCont.classList.remove("notifActive");
 })
 
-function showNot() {
+function showNot()
+{
     notifCont.classList.add("notifActive");
-    setTimeout(function () {
+    setTimeout(function ()
+    {
         notifCont.classList.remove("notifActive");
     }, 6000);
 }
 
 //send message function
-async function sendMess(e) {
+async function sendMess(e)
+{
 
     e.preventDefault();
 
@@ -103,11 +112,12 @@ async function sendMess(e) {
                     'Accept': 'aplication/json, text/plain, */*',
                     'Content-type': 'application/json'
                 },
-                body: JSON.stringify({'name': namev, 'text': messv, 'captcha': resp})
+                body: JSON.stringify({ 'name': namev, 'text': messv, 'captcha': resp })
             })
             .then((res) => res.json())
             .then(
-                (data) => {
+                (data) =>
+                {
                     console.log(data);
                     drawDot();
                 }
@@ -152,13 +162,17 @@ async function sendMess(e) {
 
 }
 
-async function drawDot() {
+async function drawDot()
+{
     fetch(`${backendUrl}/api/v1/cake/`)
-        .then(function (res) {
+        .then(function (res)
+        {
             return res.json()
         })
-        .then((data) => {
-            data.forEach(function (cakeFragment) {
+        .then((data) =>
+        {
+            data.forEach(function (cakeFragment)
+            {
                 let randomElement = cakeFragment.position.position;
                 for (let i = 1; i <= 50; i++) {
                     for (let j = 1; j <= 50; j++) {
@@ -168,6 +182,7 @@ async function drawDot() {
                             cakeElement.style.visibility = "visible";
                             cakeElement.setAttribute('data-name', cakeFragment.name);
                             cakeElement.setAttribute('data-mess', cakeFragment.text);
+                            candles++;
                         }
                     }
                 }
@@ -175,24 +190,34 @@ async function drawDot() {
 
         })
 }
+function HowManyCandles()
+{
+    space2inf.innerHTML = `mamy już ${candles} świeczek, co daje nam ${Math.floor(candles / 100)} tortów!`
+}
 
-function getUser() {
+
+
+function getUser()
+{
 
     cake.classList.toggle("dis-none");
     cakewd.classList.toggle("dis-none");
     cake.style.display = "grid";
     back.style.display = "block";
+    HowManyCandles();
 }
 
 // button clicable on capcha
-function recaptchaCallback() {
+function recaptchaCallback()
+{
     sub.removeAttribute('disabled')
 }
 
 // return to form function
 back.addEventListener("click", goBack);
 
-function goBack() {
+function goBack()
+{
     back.style.display = "none";
     cake.classList.toggle("dis-none");
     cakewd.classList.toggle("dis-none");
@@ -204,7 +229,8 @@ function goBack() {
 // mini div click current function
 ck.addEventListener('click', currDiv);
 
-function currDiv(e) {
+function currDiv(e)
+{
     let tg = e.target;
     if (e.target.classList.contains("box")) {
         e.target.classList.toggle('pulse');
@@ -214,7 +240,8 @@ function currDiv(e) {
 }
 
 // draw sphere function
-async function drawSphere() {
+async function drawSphere()
+{
     let output = `<div class="box" style=" clear:both; visibility: hidden;"></div>`;
     for (let i = 1; i <= 50; i++) {
         for (let j = 1; j <= 50; j++) {
@@ -241,7 +268,8 @@ async function drawSphere() {
 }
 
 
-function showCake() {
+function showCake()
+{
     formcont.style.display = "none";
     getUser();
     drawSphere();

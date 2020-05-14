@@ -135,8 +135,13 @@ color:#0275d8 ;
 }
 .space-2{
 	height: 100px;
+	margin: 0 auto;
 }
-
+#space-2inf{
+	text-align: center;
+	color: white;
+	font-weight: bold;
+}
 #form-cont{
 	padding: 2% 15px;
 }
