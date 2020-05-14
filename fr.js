@@ -207,11 +207,12 @@ function HowManyCandles()
 
 function getUser()
 {
-    HowManyCandles();
+
     cake.classList.toggle("dis-none");
     cakewd.classList.toggle("dis-none");
     cake.style.display = "grid";
     back.style.display = "block";
+    HowManyCandles();
 
 }
 
