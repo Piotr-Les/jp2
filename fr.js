@@ -225,6 +225,9 @@ function currDiv(e) {
         e.target.classList.toggle('pulse');
         $(e.target).siblings().removeClass("pulse");
         uinf.innerHTML = `<strong>${e.target.getAttribute('data-name')}</strong>: ${e.target.getAttribute('data-mess')} `;
+        $('html').animate({scrollTop: $('#uinf-cont').offset().top-$('.navbar').height()-10}, 'normal');
+
+
     }
 }
 

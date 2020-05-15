@@ -238,18 +238,18 @@ textarea:focus{
 	outline: none;
 	 border: 1.5px solid #0275d8;
 }
-textarea::placeholder { 
-	text-align: center; 
-} 
+textarea::placeholder {
+	text-align: center;
+}
 input[type="text"]{
 	border: none;
 	width: 100%;
 	height: 56.4px;
 	text-align: center;
 }
-input[type="text"]::placeholder {      
-	text-align: center; 
-} 
+input[type="text"]::placeholder {
+	text-align: center;
+}
 input:focus{
 	outline: none;
    border: 1.5px solid #0275d8;
@@ -296,7 +296,8 @@ padding: 2% 0 0 0;
 
 }
 #uinf{
-	color: white;
+	color: #060606;
+	font-size: 18px;
 	margin: 0 auto;
 	padding: 0 10px;
 	text-align: center;
@@ -341,14 +342,14 @@ padding: 2% 0 0 0;
 	visibility: hidden;
 }
 /* MEDIA QUERIES */
-@media screen and (max-width: 330px){ 
+@media screen and (max-width: 330px){
 	.box{
 		width: 5.5px;
 		height: 5.5px;
 	}
 }
-@media screen and (min-width: 374px){ 
-	
+@media screen and (min-width: 374px){
+
 	#uinf-cont{
 		height: 192px;
 	}
@@ -359,7 +360,7 @@ padding: 2% 0 0 0;
 	}
 }
  /* Small devices (landscape phones) */
- @media screen and (min-width: 411px){ 
+ @media screen and (min-width: 411px){
 	#uinf-cont{
 		height: 168px;
 	}
@@ -368,9 +369,9 @@ padding: 2% 0 0 0;
 		width: 7px;
 		height: 7px;
 	}
-	
+
 }
-@media screen and (min-width: 576px){ 
+@media screen and (min-width: 576px){
 	#uinf-cont{
 		height: 120px;
 	}
@@ -379,10 +380,10 @@ padding: 2% 0 0 0;
 		width: 8px;
 		height: 8px;
 	}
-	
+
 }
 /* Medium devices (tablets, 768px and up) */
-@media screen and (min-width: 768px) { 
+@media screen and (min-width: 768px) {
 
 	#uinf-cont{
 		height: 96px;
@@ -393,7 +394,7 @@ padding: 2% 0 0 0;
 	}
 }
 
- 
+
  /* Large devices (desktops, 992px and up) */
 @media screen and (min-width: 992px) {
 	#cake{
