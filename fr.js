@@ -30,12 +30,13 @@ document.addEventListener('submit', sendMess);
 // sub.addEventListener('click', getUser); now getUser is called from sendMess function
 name.addEventListener('keyup', checkName);
 mess.addEventListener('keyup', checkMess);
-showCakeButton.addEventListener('click', showCake);
+document.addEventListener('DOMContentLoaded', showCake);
 
 // acordeon expand colapse function
 accordions.addEventListener('click', exp)
 
-function exp() {
+function exp()
+{
     this.classList.toggle('is-open');
     let content = this.nextElementSibling;
     if (content.style.maxHeight) {
@@ -50,15 +51,17 @@ function exp() {
 // asign value from acordeon function
 accContent.addEventListener('click', asVal);
 
-function asVal(e) {
+function asVal(e)
+{
     if (e.target.classList.contains("l-opt")) {
         mess.value = e.target.getAttribute("data-vl");
         mess.style.border = "1.5px solid #5cb85c";
-        $('html').animate({scrollTop: $(mess).offset().top}, 'slow');
+        $('html').animate({ scrollTop: $(mess).offset().top }, 'slow');
     }
 }
 
-function checkName() {
+function checkName()
+{
     if (name.value.length <= 128) {
         name.style.border = "1.5px solid #5cb85c"
     } else {
@@ -66,7 +69,8 @@ function checkName() {
     }
 }
 
-function checkMess() {
+function checkMess()
+{
     if (mess.value.length <= 256) {
         mess.style.border = "1.5px solid #5cb85c"
     } else {
@@ -74,11 +78,13 @@ function checkMess() {
     }
 }
 
-notifClose.addEventListener('click', function () {
+notifClose.addEventListener('click', function ()
+{
     notifCont.classList.remove("notifActive");
 });
 
-function howManyCandles(candles) {
+function howManyCandles(candles)
+{
     const floor = Math.floor(candles / 100);
     if (floor === 1) {
         space2inf.innerHTML = `Mamy już ${candles} świeczek, co daje nam ${floor} tort!`;
@@ -90,15 +96,18 @@ function howManyCandles(candles) {
 
 }
 
-function showNot() {
+function showNot()
+{
     notifCont.classList.add("notifActive");
-    setTimeout(function () {
+    setTimeout(function ()
+    {
         notifCont.classList.remove("notifActive");
     }, 6000);
 }
 
 //send message function
-async function sendMess(e) {
+async function sendMess(e)
+{
 
     e.preventDefault();
 
@@ -115,11 +124,12 @@ async function sendMess(e) {
                     'Accept': 'aplication/json, text/plain, */*',
                     'Content-type': 'application/json'
                 },
-                body: JSON.stringify({'name': namev, 'text': messv, 'captcha': resp})
+                body: JSON.stringify({ 'name': namev, 'text': messv, 'captcha': resp })
             })
             .then((res) => res.json())
             .then(
-                (data) => {
+                (data) =>
+                {
                     console.log(data);
                     drawDot();
                 }
@@ -164,15 +174,19 @@ async function sendMess(e) {
 
 }
 
-async function drawDot() {
+async function drawDot()
+{
     fetch(`${backendUrl}/api/v1/cake/`)
-        .then(function (res) {
+        .then(function (res)
+        {
             return res.json()
         })
-        .then((data) => {
+        .then((data) =>
+        {
             howManyCandles(data.length);
 
-            data.forEach(function (cakeFragment) {
+            data.forEach(function (cakeFragment)
+            {
                 let randomElement = cakeFragment.position.position;
 
                 let cakeElement = $(`.box[data-nr='${randomElement}']`);
@@ -191,7 +205,8 @@ async function drawDot() {
         })
 }
 
-function getUser() {
+function getUser()
+{
     cake.classList.toggle("dis-none");
     cakewd.classList.toggle("dis-none");
     cake.style.display = "grid";
@@ -200,14 +215,16 @@ function getUser() {
 }
 
 // button clicable on capcha
-function recaptchaCallback() {
+function recaptchaCallback()
+{
     sub.removeAttribute('disabled')
 }
 
 // return to form function
 back.addEventListener("click", goBack);
 
-function goBack() {
+function goBack()
+{
     back.style.display = "none";
     cake.classList.toggle("dis-none");
     cakewd.classList.toggle("dis-none");
@@ -219,20 +236,22 @@ function goBack() {
 // mini div click current function
 ck.addEventListener('click', currDiv);
 
-function currDiv(e) {
+function currDiv(e)
+{
     let tg = e.target;
     if (e.target.classList.contains("box")) {
         e.target.classList.toggle('pulse');
         $(e.target).siblings().removeClass("pulse");
         uinf.innerHTML = `<strong>${e.target.getAttribute('data-name')}</strong>: ${e.target.getAttribute('data-mess')} `;
-        $('html').animate({scrollTop: $('#uinf-cont').offset().top-$('.navbar').height()-10}, 'normal');
+        $('html').animate({ scrollTop: $('#uinf-cont').offset().top - $('.navbar').height() - 10 }, 'normal');
 
 
     }
 }
 
 // draw sphere function
-async function drawSphere() {
+async function drawSphere()
+{
     let output = `<div class="box" style=" clear:both; visibility: hidden;"></div>`;
     for (let i = 1; i <= 50; i++) {
         for (let j = 1; j <= 50; j++) {
@@ -259,7 +278,8 @@ async function drawSphere() {
 }
 
 
-function showCake() {
+function showCake()
+{
     formcont.style.display = "none";
     getUser();
     drawSphere();
